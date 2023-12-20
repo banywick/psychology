@@ -1,27 +1,22 @@
 from pymongo.mongo_client import MongoClient
 
 
-def mongo_save(doc, id, link):
+def connect_mongo_db():
     cluster = MongoClient(
         "mongodb+srv://definit:MongoDefInit2023@cluster0.5tujig4.mongodb.net/?retryWrites=true&w=majority")
     db = cluster["psycho_data"]
     collection = db["link"]
-    collection.insert_one( {f"{doc}": {f"{id}": f"{link}"}})
-    # query = {"doc.5": {"$exists": True}}  # Удаление документа у которогого ключ = 5
-    # result = collection.delete_many(query)
-# mylist = ['alex', 'den', '15', 'dog']
-# mydict = {str(i): v for i, v in enumerate(mylist, 1)}
-# collection.insert_one(mydict)
-# print('ok')
+    return collection
 
-# print([doc for doc in collection.find({1: {$exists : True}})])
-# print(collection.find({"2": {"$exists": True}}))
-# for i in collection.find_one({'3': {"$exists": True}}):
-#
-#     print(i)
-# #
-# doc = collection.find_one({"link": {"1": {"$regex": "^asf"}}})
-# query = {"link": {"1": {"$regex": "^asf"}}}
-# document = collection.find_one(query)
 
-# print(document)
+def mongo_save(*args, **kwargs):
+    connect_mongo_db().insert_one({f"{args}": {f"{id}": f"{kwargs}"}})
+
+
+def get_one_link():
+    connect = connect_mongo_db()
+    one_link = connect.find_one({"doc.1": {"$exists": True}})
+    return one_link["doc"]['1']
+
+
+
