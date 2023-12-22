@@ -16,9 +16,19 @@ def mongo_save(doc, article_link_id ,link):
 
 def get_one_link(): # Достаю из монго все ссылки помещаю их в список
     data = []
-    all_link = connect_mongo_db().find()
-    for i in all_link:
+    for i in connect_mongo_db().find():
         x = str(i['doc'])
         data.append(x[12:-2])
-        return data
+    print(len(data))
+    print(data[0])
+    return data
+
+get_one_link()
+
+
+# def all_link():
+#     for i in connect_mongo_db().find():
+#         print(i)
+# all_link()
+
 

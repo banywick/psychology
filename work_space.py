@@ -1,3 +1,5 @@
+from pprint import pprint
+
 import requests
 from bs4 import BeautifulSoup
 from connect_mongo_db import mongo_save, connect_mongo_db, get_one_link
@@ -29,8 +31,15 @@ def parse_link():
 
 
 def parse_article():
+    article_list = []
     links = get_one_link()
-    print(links[0])
+    print(len(get_one_link()))
+    url = links[0]
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'lxml')
+    for i in range(9, 47):
+        article = soup.find('div', class_='field-item even').findAll('p')[i].text
+        article_list.append(article)
+    # print(article_list)
 
-
-parse_article()
+# parse_article()
