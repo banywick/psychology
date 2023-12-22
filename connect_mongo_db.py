@@ -9,14 +9,16 @@ def connect_mongo_db():
     return collection
 
 
-def mongo_save(*args, **kwargs):
-    connect_mongo_db().insert_one({f"{args}": {f"{id}": f"{kwargs}"}})
+def mongo_save(doc, article_link_id ,link):
+    connect_mongo_db().insert_one({f"{doc}": {f"{article_link_id}": f"{link}"}})
 
 
-def get_one_link():
-    connect = connect_mongo_db()
-    one_link = connect.find_one({"doc.1": {"$exists": True}})
-    return one_link["doc"]['1']
 
-
+def get_one_link(): # Достаю из монго все ссылки помещаю их в список
+    data = []
+    all_link = connect_mongo_db().find()
+    for i in all_link:
+        x = str(i['doc'])
+        data.append(x[12:-2])
+        return data
 
