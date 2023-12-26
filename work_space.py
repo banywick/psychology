@@ -2,7 +2,8 @@ from pprint import pprint
 
 import requests
 from bs4 import BeautifulSoup
-from connect_mongo_db import mongo_save, connect_mongo_db, get_one_link
+from connect_mongo_db import mongo_save, connect_mongo_db, get_all_link
+import time
 
 """Блок подключения к вебсайту извлечения ссылок на статьи и загрузки в монго"""
 
@@ -32,14 +33,27 @@ def parse_link():
 
 def parse_article():
     article_list = []
-    links = get_one_link()
-    print(len(get_one_link()))
-    url = links[0]
-    r = requests.get(url)
-    soup = BeautifulSoup(r.text, 'lxml')
-    for i in range(9, 47):
-        article = soup.find('div', class_='field-item even').findAll('p')[i].text
-        article_list.append(article)
-    # print(article_list)
+    links = get_all_link()
+    for i in range(5, 8):
+        url = links[i]
+        r = requests.get(url)
+        soup = BeautifulSoup(r.text, 'lxml')
+        article = soup.find('div', class_='field-item even').findAll('p')
 
-# parse_article()
+        for index, strong in enumerate(article, 0):
+            if strong.text == 'АННОТАЦИЯ' or strong.text == 'Введение.':
+                start_index = index
+
+
+            elif strong.text == 'Список литературы:':
+                stop_index = index
+
+
+        for art_elem in range(start_index, stop_index):
+            soup = BeautifulSoup(r.text, 'lxml')
+            article = soup.find('div', class_='field-item even').findAll('p')[art_elem].text
+            article_list.append(article)
+        print(article_list)
+
+
+parse_article()
