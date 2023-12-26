@@ -1,0 +1,952 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   Доска объявлений. Беларусь
+  </title>
+  <meta content="admin@xn--d1acuhm.xn--90ais, https://домер.бел" name="Author"/>
+  <link href="./icon/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="./style/style.css" rel="stylesheet" type="text/css"/>
+  <link href="./style/jquery.fancybox.css" media="screen" rel="stylesheet" type="text/css"/>
+  <script src="./lib/flash.js">
+  </script>
+  <script src="./js/jquery-1.4.4.min.js">
+  </script>
+  <script src="./js/jquery.fancybox-1.2.1.pack.js">
+  </script>
+  <script src="./js/fancy.js">
+  </script>
+  <script>
+   function scrollTo(el)
+			{
+			var duration = 700;
+			var element = $(el).offset();
+			var pos = element.top;
+			$('html, body').animate({scrollTop: pos}, duration);
+			}
+
+$(document).ready(function(){
+ $('.spoiler_links').bind("mouseenter mouseleave", (function(){
+  $(this).children('div.spoiler_body').toggle();
+ return false;
+ }));
+});
+  </script>
+ </head>
+ <body style="MARGIN: 0px auto; POSITION: inherit; width: 1000px;  overflow:scroll;">
+  <table border="0" style="margin-left:15px; " width="968">
+   <tr height="24">
+    <td colspan="2">
+     <a class="top_zg" href="./catalog/">
+      Объявления
+     </a>
+     <a class="top_zg" href="./magazin/">
+      Магазины
+     </a>
+     <a class="top_zg" href="./publication/">
+      Публикации
+     </a>
+     <a class="top_zg" href="./pages/help.php">
+      Помощь
+     </a>
+    </td>
+    <td align="right">
+     <span class="top_zg" id="blok_col">
+     </span>
+     <a class="fancy_vhod" href="https://домер.бел/user/logpass.php">
+      Вход и регистрация
+     </a>
+    </td>
+   </tr>
+   <tr height="1">
+    <td background="./icon/line.jpg" colspan="3">
+    </td>
+   </tr>
+   <tr style="padding-bottom:20px; vertical-align:bottom; ">
+    <td width="180">
+     <a href="./">
+      <img border="0" src="./icon/logo.png"/>
+     </a>
+    </td>
+    <td style="padding-bottom:11px;">
+     <h1 class="board">
+      Общебелорусская доска объявлений
+     </h1>
+     <a class="top_zg" href="./catalog/avtomobili_s_probegom_9/all_0/">
+      Авто
+     </a>
+     <a class="top_zg" href="./catalog/rabota_106/all_0/">
+      Работа
+     </a>
+     <a class="top_zg" href="./catalog/nedvizhimost_71/all_0/">
+      Недвижимость
+     </a>
+     <a class="top_zg" href="./vibor_razdela.php" id="fancy_vibor_razdela">
+      Ещё...
+     </a>
+    </td>
+    <td style="padding-bottom:15px; text-align:right; ">
+     <a href="./blok/add.php">
+      <img border="0" src="./icon/button.png"/>
+     </a>
+    </td>
+   </tr>
+  </table>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+   (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter34455750 = new Ya.Metrika({
+                    id:34455750,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+  </script>
+  <noscript>
+   <div>
+    <img alt="" src="https://mc.yandex.ru/watch/34455750" style="position:absolute; left:-9999px;"/>
+   </div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-167487033-1">
+  </script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-167487033-1');
+  </script>
+  <table class="table" width="100%">
+   <tr>
+    <td>
+     <table width="100%">
+      <tr>
+       <td class="td" valign="top" width="90%">
+        <form action="https://домер.бел/search.php" id="form_edit" method="post" name="form_edit">
+         <table border="0" cellpadding="0" cellspacing="0" style="padding:2px; background-color: #3CB371; margin-top:-15px;" width="969">
+          <tr valign="top">
+           <td id="cat_0" width="10%">
+            <div class="dvg">
+             <select id="razdel_0" name="razdel_0" onchange="search_cat(0, this.value); return false">
+              <option value="0">
+               Все разделы
+              </option>
+              <option value="1">
+               Транспорт
+              </option>
+              <option value="2">
+               Для дома и дачи
+              </option>
+              <option value="5">
+               Личные вещи
+              </option>
+              <option value="71">
+               Недвижимость
+              </option>
+              <option value="72">
+               Бытовая электроника
+              </option>
+              <option value="70">
+               Животные
+              </option>
+              <option value="73">
+               Хобби и отдых
+              </option>
+              <option value="74">
+               Работа и бизнес
+              </option>
+              <option value="172">
+               Потери и находки
+              </option>
+             </select>
+            </div>
+            <input id="name_cat_0" name="name_cat_0" type="hidden" value=""/>
+           </td>
+           <td id="text_search">
+            <input class="txt_f_search" name="text_search" placeholder="Поиск по тексту" value=""/>
+           </td>
+           <td align="right" width="10%">
+            <table cellpadding="0" cellspacing="0" style="margin-left:4px; margin-right:1px; ">
+             <tr>
+              <td id="reg_0">
+               <div class="dvg">
+                <select id="region_0" name="region_0" onchange="search_reg(0, this.value, this.value, 0); return false">
+                 <option value="0">
+                  Любое расположение
+                 </option>
+                 <option value="7796">
+                  МИНСК
+                 </option>
+                 <option value="7806">
+                  БРЕСТСКАЯ ОБЛАСТЬ
+                 </option>
+                 <option value="7839">
+                  ВИТЕБСКАЯ ОБЛАСТЬ
+                 </option>
+                 <option value="7862">
+                  ГОМЕЛЬСКАЯ ОБЛАСТЬ
+                 </option>
+                 <option value="7906">
+                  ГРОДНЕНСКАЯ ОБЛАСТЬ
+                 </option>
+                 <option value="7925">
+                  МИНСКАЯ ОБЛАСТЬ
+                 </option>
+                 <option value="7948">
+                  МОГИЛЕВСКАЯ ОБЛАСТЬ
+                 </option>
+                </select>
+               </div>
+               <input id="name_reg_0" name="name_reg_0" type="hidden" value=""/>
+              </td>
+              <td id="reg_1">
+              </td>
+              <td id="reg_2">
+              </td>
+              <td id="reg_3">
+              </td>
+              <td id="reg_4">
+              </td>
+             </tr>
+            </table>
+           </td>
+          </tr>
+          <tr height="25" valign="middle">
+           <td colspan="2">
+            <input name="sz" type="checkbox"/>
+            Только в заголовках
+            <input name="fy" type="checkbox"/>
+            С фото
+            <input name="vy" type="checkbox"/>
+            с видео
+           </td>
+           <td align="right" style="padding-right:3px; padding-bottom:2px ">
+            <input border="0" name="submit" src="https://домер.бел/icon/poisk.png" style=" height:28px;" type="image"/>
+           </td>
+          </tr>
+          <tr valign="top">
+           <td colspan="3">
+            <div class="dvs" id="cat_1">
+            </div>
+            <div class="dvs" id="cat_2">
+            </div>
+            <div class="dvs" id="cat_3">
+            </div>
+            <div class="dvs" id="cat_4">
+            </div>
+            <span id="param">
+            </span>
+           </td>
+          </tr>
+         </table>
+         <input id="zapros_q" name="zapros_q" size="70" type="hidden" value=""/>
+         <input name="id_firm" type="hidden" value=""/>
+        </form>
+        <script language="javascript">
+         function search_cat(w, id_cat)
+			{
+			$.ajax({
+					type: "GET",
+					url: "./blok/search_cat_two.php?w="+w+"&id_cat="+id_cat,
+					success: function(html) {
+					var v=w+1;
+					for(var i=v; i<5; i++)
+						{
+						$("#cat_"+i).empty();
+						}
+					//$("#param").empty();
+					$("#cat_"+v).html(html);
+                	}
+        		});
+			}
+			
+			function search_reg(w, id_reg, glob, m)
+			{
+			$.ajax({
+					type: "GET",
+					url: "./blok/search_reg_two.php?w="+w+"&id_reg="+id_reg+"&glob="+glob+"&m="+m,
+					success: function(html) {
+					var v=w+1;
+					for(var i=v; i<5; i++)
+						{
+						$("#reg_"+i).empty();
+						}
+					$("#reg_"+v).append(html);
+                	}
+        		});
+			}
+			
+			function search_param(w, id_catalog)
+			{
+			$.ajax({
+					type: "GET",
+					url: "./blok/search_param.php?w="+w+"&id_catalog="+id_catalog,
+					success: function(html) {
+					//$("#param").empty();
+					$("#param").html(html);
+                	}
+        		});
+			}
+			
+			
+			function send_element_two(car, id, two, field, viv)
+			{
+			$.ajax({
+					type: "GET",
+					url: "./blok/el_two.php?car="+car+"&id="+id+"&two="+two+"&field="+field+"&viv="+viv,
+					success: function(html) {
+						$("#www"+id).empty();
+						$("#www"+id).append(html);
+                	}
+        		});
+			}
+
+    		
+			function sort_tab(count, srt, srt2, pn, order)
+			{
+			var dop_str=document.getElementById('zapros_q').value; 
+			$.ajax({
+					type: "GET",
+					url: "./blok/sort_tab.php?count="+count+"&srt="+srt+"&srt2="+srt2+"&pn="+pn+"&order="+order+"&"+dop_str,
+					success: function(html) {
+						$("#len_tab").empty();
+						$("#len_tab").append(html);
+                	}
+        		});
+			scrollTo ("#len_t");				
+			}
+			
+			function sort_tab_len(count, srt, srt2, pn, order)
+			{
+			var dop_str=document.getElementById('zapros_q').value; 
+			$.ajax({
+					type: "GET",
+					url: "./blok/sort_tab_len.php?count="+count+"&srt="+srt+"&srt2="+srt2+"&pn="+pn+"&order="+order+"&"+dop_str,
+					success: function(html) {
+						$("#len_tab").empty();
+						$("#len_tab").append(html);
+                	}
+        		});
+			scrollTo ("#len_t");				
+			}
+			
+			
+			function sort_tab_img(count, srt, srt2, pn, order)
+			{
+			var dop_str=document.getElementById('zapros_q').value; 
+			$.ajax({
+					type: "GET",
+					url: "https://домер.бел/blok/sort_tab_img.php?count="+count+"&srt="+srt+"&srt2="+srt2+"&pn="+pn+"&order="+order+"&"+dop_str,
+					success: function(html) {
+						$("#len_tab").empty();
+						$("#len_tab").append(html);
+                	}
+        		});
+			scrollTo ("#len_t");				
+			}
+			
+			function sort_tab_nof(count, srt, srt2, pn, order)
+			{
+			var dop_str=document.getElementById('zapros_q').value; 
+			$.ajax({
+					type: "GET",
+					url: "https://домер.бел/blok/sort_tab_nof.php?count="+count+"&srt="+srt+"&srt2="+srt2+"&pn="+pn+"&order="+order+"&"+dop_str,
+					success: function(html) {
+						$("#len_tab").html(html);
+                	}
+        		});
+			scrollTo ("#len_t");				
+			}
+			
+			
+			function send_cart(car, a, b)
+			{
+			$.ajax({
+					type: "GET",
+					url: "./blok/cart.php?car="+car+"&a="+a+"&b="+b,
+					success: function(html) {
+						$("#car"+car).empty();
+						$("#car"+car).append(html);
+                	}
+        		});
+			}
+
+			function func5(a)
+			{
+			var d=window.document.getElementById(a).options.length;
+			for(i=0;i<d;i++)
+				{
+				if(document.getElementById(a).options[i].selected) 
+					{
+					document.getElementById(a).style.backgroundColor = document.getElementById(a).options[i].style.backgroundColor;
+					document.getElementById(a).style.color = document.getElementById(a).options[i].style.color;
+					}
+				}
+			}
+			
+			function lok (h) {
+			window.location=h;
+			}
+			
+		function send_tel(id, id_span)
+			{
+			$.ajax({
+					type: "GET",
+					url: "./blok/tel.php?id="+id,
+					success: function(html) {
+						$("#"+id_span).html(html);
+               		}
+        		});
+			}
+        </script>
+        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+        </script>
+       </td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td align="center">
+    </td>
+   </tr>
+   <tr>
+    <td class="td">
+     ﻿
+     <table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+       <td valign="top" width="80%">
+        <table width="100%">
+         <tr>
+          <td valign="top" width="33%">
+           <a href="./catalog/all_0/minsk_7796/">
+            МИНСК
+           </a>
+           <br/>
+           <a href="./catalog/all_0/brestskaya_oblast_7806/">
+            БРЕСТСКАЯ ОБЛАСТЬ
+           </a>
+           <br/>
+           <a href="./catalog/all_0/vitebskaya_oblast_7839/">
+            ВИТЕБСКАЯ ОБЛАСТЬ
+           </a>
+           <br/>
+          </td>
+          <td valign="top" width="33%">
+           <a href="./catalog/all_0/gomelskaya_oblast_7862/">
+            ГОМЕЛЬСКАЯ ОБЛАСТЬ
+           </a>
+           <br/>
+           <a href="./catalog/all_0/grodnenskaya_oblast_7906/">
+            ГРОДНЕНСКАЯ ОБЛАСТЬ
+           </a>
+           <br/>
+           <a href="./catalog/all_0/minskaya_oblast_7925/">
+            МИНСКАЯ ОБЛАСТЬ
+           </a>
+           <br/>
+          </td>
+          <td valign="top" width="33%">
+           <a href="./catalog/all_0/mogilevskaya_oblast_7948/">
+            МОГИЛЕВСКАЯ ОБЛАСТЬ
+           </a>
+           <br/>
+          </td>
+         </tr>
+        </table>
+        <br/>
+        <br/>
+        <p align="center">
+         <font size="+1">
+          Последние объявления
+         </font>
+        </p>
+        <table width="100%">
+         <tr>
+          <td>
+           <table border="0" cellpadding="0" cellspacing="1" width="100%">
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               14:43
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/6/1114106s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/prodayu_dom_192_00_kv_m_kirpichniy_240150" style="font-size:14px" title="Продается дом с участком 11 соток в живописном уголке Заславля, в пешей доступности - Хмелевские озера! Просторный двухэтажный дом с пятью раздельными комнатами, двумя санузлами, баней, бассейном, бол ...">
+               Продаю  дом  192,00 кв.м  кирпичный
+              </a>
+              <br/>
+              398 918 руб.
+              <br/>
+              <span style="color:#858585">
+               Продам дом, дачу
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Компания
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Заславль
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               14:09
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/3/1114103s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/prodaetsya_1_4_doli_v_1k_kvartire_po_ul_mogilevskaya_6_2_240149" style="font-size:14px" title="Продается 1/4 доли в 1 комнатной квартире по ул. Могилевская 6 корп. 2 около Ж/Д вокзала.  Квартира находиться на 1 этаже хорошего панельного дома 1985 года постройки Квартире необходим косметический  ...">
+               Продается 1 4 доли в 1к квартире по ул. Могилевская 6 2
+              </a>
+              <br/>
+              31 939 руб.
+              <br/>
+              <span style="color:#858585">
+               Продам комнату
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Компания
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Октябрьский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               13:46
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/77/1114077s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/prodayu_2_komn_kvartiru_41_80_kv_m_240148" style="font-size:14px" title="Двухкомнатная квартира с нормальным ремонтом на Коласа 57/1.  Кирпичный теплый дом, спокойные соседи. Имеется подвальное помещение.  Вся мебель что на фото, а также стиральная машина, и холодильник Be ...">
+               Продаю 2-комн квартиру 41,80 кв м
+              </a>
+              <br/>
+              182 052 руб.
+              <br/>
+              <span style="color:#858585">
+               Продам квартиру
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Компания
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Советский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               13:46
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/61/1114061s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/kuhni_narodov_mira__belorusskaya_kuhnya_240147" style="font-size:14px" title="«Белорусская кухня» - красочная и интересная книга для любителей белорусской кухни.  Она содержит известные рецепты таких блюд как рыбная солянка, мачанка по-крестьянски, драники со сметаной, колдуны, ...">
+               Кухни народов мира , - Белорусская кухня
+              </a>
+              <br/>
+              18 руб.
+              <br/>
+              <span style="color:#858585">
+               Книги и журналы
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Ленинский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               13:41
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/53/1114053s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/1_komnatnaya_kvartira_v_novom_dome_na_sutki_i_bolee_240146" style="font-size:14px" title="2 комнатная квартира на часы, сутки на ул. Харьковской, метро Пушкинская или Молодёжная. Есть всё необходимое для комфортного проживания: двуспальная кровать, раскладной диван, встроенные шкафы, свеже ...">
+               1-комнатная квартира в новом доме на сутки и более
+              </a>
+              <br/>
+              100 руб.
+              <br/>
+              <span style="color:#858585">
+               Сдам квартиру
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Фрунзенский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               13:39
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/47/1114047s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/1_komnatnaya_kvartira_v_novom_dome_na_sutki_i_bolee_240145" style="font-size:14px" title="1 комнатная квартира на часы, сутки на ул. Харьковской, метро Пушкинская или Молодёжная. Есть всё необходимое для комфортного проживания: большой раскладной диван, встроенные шкафы, свежее постельное  ...">
+               1-комнатная квартира в новом доме на сутки и более
+              </a>
+              <br/>
+              80 руб.
+              <br/>
+              <span style="color:#858585">
+               Сдам квартиру
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Фрунзенский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               13:12
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/44/1114044s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/kubik_rubika_evropochta_belpochta_240144" style="font-size:14px" title="Продаётся кубик Рубика, б/у, в отличном состоянии.  Цена - 10 рублей.  Варианты передачи лота покупателю: самовывоз, а также отправка покупателю посредством европочты или Белпочты.  Адрес: г. Минск, у ...">
+               Кубик Рубика европочта, белпочта
+              </a>
+              <br/>
+              10 руб.
+              <br/>
+              <span style="color:#858585">
+               Товары для детей и игрушки
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Ленинский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               13:04
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/37/1114037s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/igrovaya_konsoltetris_pochta_evropochta_240143" style="font-size:14px" title="Игрушка поможет ребенку развить внимание и образное мышление в форме увлекательного соревнования, цель которого - набрать максимальное количество очков. Игрушка имеет привычный дизайн с удобными кнопк ...">
+               Игровая консольТетрис, -почта, европочта
+              </a>
+              <br/>
+              10 руб.
+              <br/>
+              <span style="color:#858585">
+               Товары для детей и игрушки
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Ленинский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               12:58
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/30/1114030s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/shotlandskie_kotyata_240142" style="font-size:14px" title="Котята породы – «Шотландские вислоухие». Возраст – 1 месяц. Кушают сами, ходят в лоток. Две девочки и два мальчика (на сегодняшний день). Окрас: фавн, песочный, голубой, тигровый серый. Котята по хара ...">
+               Шотландские котята
+              </a>
+              <br/>
+              80 руб.
+              <br/>
+              <span style="color:#858585">
+               Кошки
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Мозырь
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               12:52
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/21/1114021s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/blyudo_farforovoe_easy_life_christmas_memories_240141" style="font-size:14px" title="Продаётся блюдо фарфоровое сервировочное итальянского бренда посуды Easy Life, коллекция «Christmas Memories».  Блюдо новое с упаковкой.  Идеально подойдёт для достойного настоящего подарка близкому ч ...">
+               Блюдо фарфоровое Easy Life Christmas Memories
+              </a>
+              <br/>
+              33 руб.
+              <br/>
+              <span style="color:#858585">
+               Посуда и товары для кухни
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Ленинский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               12:31
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/10/1114010s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/komnata_v_3_komnatnoy_kvartire_na_ul_kalinovskogo_35_240140" style="font-size:14px" title="Комната 13.9 м в 3-комнатной квартире в Зеленом Луге. Доля 167/500. Дом в тихом, экологически чистом районе. Уютный зеленый двор. Рядом Полоцкий Парк с водной системой. 10 мин на транспорте до с. м. В ...">
+               Комната в 3-комнатной квартире на ул. Калиновского 35
+              </a>
+              <br/>
+              54 296 руб.
+              <br/>
+              <span style="color:#858585">
+               Продам комнату
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Компания
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Первомайский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+            <tr class="tr_tab">
+             <td class="td_tab t3">
+              Сегодня
+              <br/>
+              <span style="color:#858585">
+               11:52
+              </span>
+              <br/>
+             </td>
+             <td class="td_tab t2">
+              <div class="divimglen">
+               <img border="0" class="imglen" src="./foto/88/1113988s.jpg"/>
+              </div>
+             </td>
+             <td>
+              <a href="./items/prodayu_1_komn_kvartiru_31_20_kv_m_240139" style="font-size:14px" title="Отличный вариант для тех, кто дорожит временем и предпочитает, чтобы всё находилось в шаговой доступности. Хорошо развитая инфраструктура, тихое место и зеленая зона.  Прекрасный вариант планировки 1- ...">
+               Продаю 1-комн квартиру 31,20 кв м
+              </a>
+              <br/>
+              133 824 руб.
+              <br/>
+              <span style="color:#858585">
+               Продам квартиру
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Компания
+              </span>
+              <br/>
+              <span style="color:#858585">
+               Фрунзенский район
+              </span>
+             </td>
+             <td>
+             </td>
+            </tr>
+           </table>
+          </td>
+         </tr>
+        </table>
+       </td>
+       <td valign="top">
+        <table width="100%">
+         <tr>
+          <td align="center">
+          </td>
+         </tr>
+        </table>
+       </td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+   <tr>
+    <td>
+     <table cellpadding="5" cellspacing="5" width="100%">
+      <tr>
+       <td>
+        <p>
+        </p>
+        <p>
+         <a class="wwe" href="./blok/add.php">
+          Подать объявление
+         </a>
+         <a class="wwe" href="./catalog/">
+          Объявления
+         </a>
+         <a class="wwe" href="./magazin/">
+          Магазины
+         </a>
+         <a class="wwe" href="./pages/help.php">
+          Помощь
+         </a>
+         <a class="wwe" href="./pages/viget.php">
+          Виджеты
+         </a>
+         <a class="wwe" href="./map.php">
+          Карта
+         </a>
+         <a class="wwe" href="./pages/obr.php">
+          Обратная связь
+         </a>
+         <a class="wwe" href="https://домер.бел/pp.php?i=https://домер.бел/m/" rel="nofollow">
+          МОБИЛЬНАЯ ВЕРСИЯ
+         </a>
+        </p>
+        <p>
+        </p>
+       </td>
+       <td>
+       </td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+  </table>
+ </body>
+</html>
