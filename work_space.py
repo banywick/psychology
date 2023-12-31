@@ -21,6 +21,7 @@ def parse_link():
             json.dump(data_link, f, indent=4)
 
 
+
 def read_json_link():
     with open('data_link.json', 'r') as f:
         links = json.load(f)
