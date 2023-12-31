@@ -1,15 +1,12 @@
 from pprint import pprint
-
+import json
 import requests
 from bs4 import BeautifulSoup
-from connect_mongo_db import mongo_save, connect_mongo_db, get_all_link, connect_mongo_collection
-import time
-
-"""Блок подключения к вебсайту извлечения ссылок на статьи и загрузки в монго"""
 
 
 def parse_link():
-    for p in range(5):
+    data_link = []
+    for p in range(4):
         # Получение ссылок на станицы где есть статьи
         url = f'https://sibac.info/arhive-article?page={p}'  # Динамически переключаю стрницы циклом
         r = requests.get(url)  # Запрос к нужной странице
@@ -18,36 +15,48 @@ def parse_link():
         for link in link_article:  # Пробегаемся по 15 статьям
             link = 'https://sibac.info/' + link.find('a').get(
                 'href')  # Ищу иерархически ссылу и добавляю к ней домен сайта
-            article_link_id = link[-6:]
-            if connect_mongo_collection("link").find_one({f"doc.{article_link_id}": {"$exists": True}}):
-                continue  # если в базе есть такая ссылка пропускаем
-            else:
-                mongo_save('doc', article_link_id, link=link)  # Сохраняем в монго
-                print(f'{article_link_id} Такой записи нет в базе, сохраняю')
+            data_link.append({"link": link})
+            print(f'На сайте найдена ссылка {link} сохранена в файле.')
+        with open('data_link.json', 'w') as f:
+            json.dump(data_link, f, indent=4)
 
 
-parse_link()
-
-""" Получаю каждую  ссылку с монго,  перехожу в нее и запускаю новый парсер на статью """
+def read_json_link():
+    with open('data_link.json', 'r') as f:
+        links = json.load(f)
+        return links
 
 
 def parse_article():
-    links = get_all_link()
-    for i in range(len(links)):
-        url = links[i]
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text, 'lxml')
-        article = soup.find('div', class_='field-item even').findAll('p')
-        for index, strong in enumerate(article, 0):
-            if strong.text == 'АННОТАЦИЯ' or strong.text == 'Введение.':
-                start_index = index
-            elif strong.text == 'Список литературы:':
-                stop_index = index
-        article_list = []
-        for art_elem in range(start_index, stop_index):
-            article = soup.find('div', class_='field-item even').findAll('p')[art_elem].text
-            article_list.append(article)
-        article_list = ' '.join(article_list)
-        connect_mongo_collection("article").insert_one({"article": article_list})
-        print(article_list)
+    links = read_json_link()
+    with open('data_article.json', 'w', encoding='utf-8') as f:  # открываем файл для добавления
+        for i in range(len(links)):
+            url = links[i]['link']
+            r = requests.get(url)
+            soup = BeautifulSoup(r.text, 'lxml')
+            article = soup.find('div', class_='field-item even').findAll('p')
+            x = []
+            for index, strong in enumerate(article, 0):
+                if strong.text == 'АННОТАЦИЯ' or strong.text == 'Введение.':
+                    start_index = index
+                    x.append(start_index)
+                elif strong.text == 'Список литературы:':
+                    stop_index = index
+                    x.append(stop_index)
+            if not x or len(x) != 2:
+                continue
+            else:
+                data_article = []
+                b = []
+                for i in range(x[0], x[1]):
+                    article = soup.find('div', class_='field-item even').findAll('p')[i].text
+                    data_article.append(article)
+                    t = ' '.join(data_article)
+                b.append({"article": t})
+                for i in b:
+                    print(i)
+                    json.dump(i, f, ensure_ascii=False, indent=4)  # записываем статью в файл
+
+
+parse_link()
 parse_article()
